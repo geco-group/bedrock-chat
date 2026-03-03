@@ -244,6 +244,14 @@ export class Api extends Construct {
       bundling: {
         assetExcludes: [...excludeDockerImage],
         buildArgs: { POETRY_VERSION: "1.8.3" },
+        commandHooks: {
+          beforeBundling(_inputDir: string, _outputDir: string): string[] {
+            return [];
+          },
+          afterBundling(_inputDir: string, outputDir: string): string[] {
+            return [`chmod +x ${outputDir}/run.sh`];
+          },
+        },
       },
       runtime: Runtime.PYTHON_3_13,
       architecture: Architecture.X86_64,
