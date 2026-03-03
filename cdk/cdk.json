@@ -74,7 +74,7 @@
     "enableRagReplicas": true,
     "enableBedrockGlobalInference": true,
     "enableBedrockCrossRegionInference": true,
-    "enableLambdaSnapStart": true,
+    "enableLambdaSnapStart": false,
     "enableBotStore": true,
     "enableBotStoreReplicas": false,
     "botStoreLanguage": "en",
