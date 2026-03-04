@@ -10,6 +10,10 @@ bedrockChatParams.set("dev", {
   bedrockRegion: "ap-northeast-1",
   selfSignUpEnabled: false,
   allowedIpV4AddressRanges: ["18.176.40.134/32"], // geco IP address
-  enableRagReplicas: false, // Cost-saving for staging environment
-  enableBotStoreReplicas: false, // Cost-saving for staging environment
+  enableFrontendIpv6: false, // Disabling this property will still create waf rules to allow ipv6 traffic. Workaround set empty array to disable ipv6 traffic.
+  allowedIpV6AddressRanges: [],
+  enableRagReplicas: false, // Cost-saving for dev environment
+  enableBotStoreReplicas: false, // Cost-saving for dev environment
+  titleModel: "claude-v4-sonnet",   // Model used for generating conversation titles
+  defaultModel: "claude-v4-sonnet", // Default model for conversations
 });
