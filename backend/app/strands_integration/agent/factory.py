@@ -11,9 +11,9 @@ from app.repositories.models.custom_bot_guardrails import BedrockGuardrailsModel
 from app.strands_integration.utils import get_strands_tools
 from strands import Agent
 from strands.hooks import HookProvider
-from strands.models import BedrockModel
 
 from app.strands_integration.agent.config import get_bedrock_model_config
+from app.nma import BedrockModelWithLogging
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +41,7 @@ def create_strands_agent(
         has_tools=has_tools,
     )
     logger.debug(f"[AGENT_FACTORY] Model config: {model_config}")
-    model = BedrockModel(
+    model = BedrockModelWithLogging(
         region_name=BEDROCK_REGION,
         **model_config,
     )
