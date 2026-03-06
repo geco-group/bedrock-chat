@@ -216,6 +216,8 @@ def chat(
     on_tool_result: Callable[[ToolRunResult], None] | None = None,
     on_reasoning: Callable[[str], None] | None = None,
 ) -> tuple[ConversationModel, MessageModel]:
+    logger.info(f"Processing chat request for: user_id={user.id}")
+
     user_msg_id, conversation, bot = prepare_conversation(user, chat_input)
     display_citation = bot is not None and bot.display_retrieved_chunks
 
