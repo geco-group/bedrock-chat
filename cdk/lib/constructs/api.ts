@@ -249,7 +249,10 @@ export class Api extends Construct {
             return [];
           },
           afterBundling(_inputDir: string, outputDir: string): string[] {
-            return [`chmod +x ${outputDir}/run.sh`];
+            return [
+              `sed -i 's/\\r$//' ${outputDir}/run.sh`,
+              `chmod +x ${outputDir}/run.sh`,
+            ];
           },
         },
       },
