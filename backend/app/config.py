@@ -329,3 +329,10 @@ BEDROCK_PRICING = {
         "llama3-2-3b-instruct": {"input": 0.00019, "output": 0.00019},
     },
 }
+
+# Merge custom NMA model pricing into all regions
+from app.nma.models import get_custom_pricing
+
+_custom_pricing = get_custom_pricing()
+for region in BEDROCK_PRICING:
+    BEDROCK_PRICING[region].update(_custom_pricing)

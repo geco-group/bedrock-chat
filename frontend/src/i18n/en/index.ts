@@ -20,6 +20,16 @@ const translation = {
       userGroups: 'User Groups',
     },
     model: {
+      'claude-v4.6-opus': {
+        label: 'Claude 4.6 (Opus)',
+        description:
+          'The most intelligent model with breakthrough capabilities in coding, reasoning, and enterprise AI agents.',
+      },
+      'claude-v4.6-sonnet': {
+        label: 'Claude 4.6 (Sonnet)',
+        description:
+          'Frontier performance model optimized for coding, agents, and professional work at scale.',
+      },
       'claude-v4-opus': {
         label: 'Claude 4 (Opus)',
         description:

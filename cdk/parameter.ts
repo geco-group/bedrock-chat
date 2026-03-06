@@ -16,4 +16,5 @@ bedrockChatParams.set("dev", {
   enableBotStoreReplicas: false, // Cost-saving for dev environment
   titleModel: "claude-v4-sonnet",   // Model used for generating conversation titles
   defaultModel: "claude-v4-sonnet", // Default model for conversations
+  enableBedrockGlobalInference: false,
 });

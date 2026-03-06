@@ -374,6 +374,17 @@ REGIONAL_INFERENCE_PROFILES = {
     },
 }
 
+# Merge custom NMA model configurations
+from app.nma.models import (
+    get_custom_model_ids,
+    get_custom_global_inference_profiles,
+    get_custom_regional_inference_profiles,
+)
+
+BASE_MODEL_IDS.update(get_custom_model_ids())
+GLOBAL_INFERENCE_PROFILES.update(get_custom_global_inference_profiles())
+REGIONAL_INFERENCE_PROFILES.update(get_custom_regional_inference_profiles())
+
 client = get_bedrock_runtime_client()
 
 
@@ -421,6 +432,8 @@ def is_tooluse_supported(model: type_model_name) -> bool:
 
 def is_specify_both_temperature_and_top_p_supported(model: type_model_name) -> bool:
     return model not in [
+        "claude-v4.6-opus",
+        "claude-v4.6-sonnet",
         "claude-v4.1-opus",
         "claude-v4.5-opus",
         "claude-v4.5-sonnet",
@@ -433,6 +446,8 @@ def is_prompt_caching_supported(
 ) -> bool:
     if target == "tool":
         return model in [
+            "claude-v4.6-opus",
+            "claude-v4.6-sonnet",
             "claude-v4-opus",
             "claude-v4.1-opus",
             "claude-v4.5-opus",
@@ -446,6 +461,8 @@ def is_prompt_caching_supported(
 
     else:
         return model in [
+            "claude-v4.6-opus",
+            "claude-v4.6-sonnet",
             "claude-v4-opus",
             "claude-v4.1-opus",
             "claude-v4.5-opus",
