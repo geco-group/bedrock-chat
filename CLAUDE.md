@@ -54,3 +54,17 @@ DynamoDB (data), API Gateway + Lambda (API), CloudFront + S3 (frontend), Cognito
 - `cdk/lib/constants/` — CDK constants
 - `backend/app/config.py` — backend runtime config
 - `frontend/.env.template` — frontend env vars template (copy to `.env.local`)
+
+## Custom Features (NMA Fork)
+
+Custom code is isolated in `backend/app/nma/` to minimize upstream conflicts.
+- `backend/app/nma/` — custom extensions for models, logging, and deployment fixes
+
+### Conventions
+- All custom backend code goes in `backend/app/nma/` — do not create custom logic outside this folder
+- Use getter functions to merge custom configs into upstream data structures
+- Do not modify upstream files directly unless absolutely necessary
+
+## Code Quality
+- Do not introduce dead code (unused imports, variables, functions, or unreachable code)
+- Remove any dead code you encounter while editing a file
