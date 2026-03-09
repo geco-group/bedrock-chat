@@ -14,7 +14,8 @@ bedrockChatParams.set("dev", {
   allowedIpV6AddressRanges: [],
   enableRagReplicas: false, // Cost-saving for dev environment
   enableBotStoreReplicas: false, // Cost-saving for dev environment
-  titleModel: "claude-v4-sonnet",   // Model used for generating conversation titles
-  defaultModel: "claude-v4-sonnet", // Default model for conversations
-  enableBedrockGlobalInference: false,
+  titleModel: "claude-v4.6-sonnet",   // Model used for generating conversation titles
+  defaultModel: "claude-v4.6-sonnet", // Default model for conversations
+  enableBedrockGlobalInference: true,
+  globalAvailableModels: ["claude-v4.6-opus", "claude-v4.6-sonnet"]
 });
